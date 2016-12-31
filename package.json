@@ -1,0 +1,17 @@
+{
+  "name": "LV-Test",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "keywords": [],
+  "author": "Spencer Dixon <spencercdixon@gmail.com> (http://spencerdixon.com/)",
+  "dependencies": {
+    "next": "^1.2.3",
+    "reflexbox": "^2.2.3"
+  }
+}
