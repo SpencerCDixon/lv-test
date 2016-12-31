@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import { fonts } from '../styles';
 import css from 'next/css';
 
-export default ({ children, bold = false }) => {
+export default ({ children, bold = false, style }) => {
   const fontWeight = bold ? 700 : 400;
   const styles = css({
     textAlign: 'center',
@@ -10,6 +10,7 @@ export default ({ children, bold = false }) => {
     color: 'white',
     fontWeight,
     margin: 0,
+    ...style
   });
 
   return (
@@ -18,6 +19,3 @@ export default ({ children, bold = false }) => {
     </h1>
   )
 }
-
-const styles = css({
-});

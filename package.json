@@ -11,6 +11,7 @@
   "keywords": [],
   "author": "Spencer Dixon <spencercdixon@gmail.com> (http://spencerdixon.com/)",
   "dependencies": {
+    "isomorphic-fetch": "^2.2.1",
     "next": "^1.2.3",
     "reflexbox": "^2.2.3"
   }

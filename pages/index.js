@@ -5,7 +5,7 @@ import Title from '../components/Title';
 import SubTitle from '../components/SubTitle';
 import HeroImage from '../components/HeroImage';
 import Logo from '../components/Logo';
-import MailchimpForm from '../components/MailchimpForm';
+import SignUpForm from '../components/SignUpForm';
 import { Flex, Box } from 'reflexbox';
 
 export default () => (
@@ -26,15 +26,16 @@ export default () => (
 
         <Flex flexColumn align="center" justify="center" style={{height: '100%'}}>
           <Box my={1}>
-            <Title>High Performance S3 Compatible Cloud Storage</Title>
+            <Title>Transformative Learning Experiences</Title>
           </Box>
           <Box my={1}>
-            <Title bold>One Tenth The Price Of S3</Title>
+            <Title style={{fontSize: '1.5em'}}>Tailored To The Way You Learn</Title>
           </Box>
-          <Box mt={3} mb={1}>
+          <Box mt={2} mb={1}>
             <SubTitle>
-              Request an invite to our private beta
+              Discover Your Learning Profile
             </SubTitle>
+            <SignUpForm />
           </Box>
         </Flex>
       </Page>
