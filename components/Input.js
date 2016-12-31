@@ -5,6 +5,17 @@ export default ({ children, ...rest }) => (
   <input className={styles} {...rest} />
 )
 
+const pulse = css.keyframes({
+  '0%':   { boxShadow: '4px 4px 20px #52BAD5' },
+  '50%':  { boxShadow: '4px 4px 40px #52BAD5' },
+  '100%': { boxShadow: '4px 4px 20px #52BAD5' }
+});
+
+const activeState = {
+  borderColor: '#52BAD5',
+  animation: `${pulse} 2s infinite`,
+};
+
 const styles = css({
   width: '100%',
   padding: '10px',
@@ -14,4 +25,6 @@ const styles = css({
   color: 'white',
   textAlign: 'center',
   boxSizing: 'border-box',
+  ':focus': activeState,
+  ':active': activeState,
 });
