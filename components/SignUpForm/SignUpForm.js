@@ -2,13 +2,14 @@ import React, { Component, PropTypes } from 'react';
 import Input from '../Input';
 import Button from '../Button';
 import fetch from 'isomorphic-fetch';
+import Api from '../../util/lvApi.js';
 import { Flex, Box } from 'reflexbox';
 
 class SignUpForm extends Component {
-  state = {
-    fname: '',
-    lname: '',
-    email: '',
+  constructor(props) {
+    super(props);
+    this.state = { fname: '', lname: '', email: '' };
+    this.api = new Api();
   }
 
   handleFNameUpdate = (e) => {
@@ -21,25 +22,15 @@ class SignUpForm extends Component {
     this.setState({email: e.target.value})
   }
   handleSubmit = () => {
-    fetch('http://localhost:3001/users', {
-      method: 'POST',
-      mode: 'cors',
-      headers: new Headers({
-        'Accept': 'application/vnd.learningventures.io; version=1',
-        'Content-Type': 'application/json',
-      }),
-      body: JSON.stringify({
-        user: {
-          first_name: this.state.fname,
-          last_name: this.state.lname,
-          email: this.state.email,
-          password: 'password',
-        }
-      }),
-    }).then(response => {
-      return response.json();
-    }).then(json => {
+    this.api.createUser({
+      firstName: this.state.fname,
+      lastName: this.state.lname,
+      email: this.state.email,
+      password: 'password',
+    })
+    .then(json => {
       console.log({json});
+      this.setState({email: '', fname: '', lname: ''})
     });
   }
 
