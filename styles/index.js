@@ -1,9 +1,11 @@
 import css from 'next/css';
 
 export const colors = {
-  primary: '#52BAD5',
-  error: '#e85c41',
-  lightGray: '#979797',
+  white: '#fff',
+  black: '#000',
+  primary: '#52BAD5',    // main blue color
+  error: '#e85c41',      // orangish red error color
+  lightGray: '#979797',  // gray used for form field border
 }
 
 export const fonts = {

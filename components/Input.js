@@ -2,12 +2,6 @@ import React, { PropTypes } from 'react';
 import { animations, colors } from '../styles';
 import css from 'next/css';
 
-const pulse = css.keyframes({
-  '0%':   { boxShadow: '4px 4px 20px #52BAD5' },
-  '50%':  { boxShadow: '4px 4px 40px #52BAD5' },
-  '100%': { boxShadow: '4px 4px 20px #52BAD5' }
-});
-
 const activeState = {
   borderColor: colors.primary,
   animation: `${animations.primaryPulse} 2s infinite`,
@@ -34,13 +28,13 @@ export default ({ input, meta, ...rest }) => {
   });
 
   const errorCss = css({
-    color: colors.error,
+    color: colors.white,
     fontSize: '.8em',
     fontStyle: 'italic',
     position: 'absolute',
     top: 15,
     right: 'initial',
-    marginLeft: 5,
+    marginLeft: 10,
     animation: `${animations.fadeIn} .5s`,
     width: '100%',
   });

@@ -63,7 +63,7 @@ export default reduxForm({
     }
 
     if (!values.email) {
-      errors.email = 'Email required. We will never spam.';
+      errors.email = 'Email required. Don\'t worry, we hate spam too.';
     }
     return errors;
   },
