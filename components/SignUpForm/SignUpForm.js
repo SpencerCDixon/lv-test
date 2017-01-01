@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
 import Input from '../Input';
 import Button from '../Button';
 import fetch from 'isomorphic-fetch';
@@ -22,16 +23,18 @@ class SignUpForm extends Component {
     this.setState({email: e.target.value})
   }
   handleSubmit = () => {
-    this.api.createUser({
-      firstName: this.state.fname,
-      lastName: this.state.lname,
-      email: this.state.email,
-      password: 'password',
-    })
-    .then(json => {
-      console.log({json});
-      this.setState({email: '', fname: '', lname: ''})
-    });
+    console.log('DISPATCHING');
+    this.props.dispatch({type: 'CREATE'});
+    // this.api.createUser({
+      // firstName: this.state.fname,
+      // lastName: this.state.lname,
+      // email: this.state.email,
+      // password: 'password',
+    // })
+    // .then(json => {
+      // console.log({json});
+      // this.setState({email: '', fname: '', lname: ''})
+    // });
   }
 
   render() {
@@ -74,4 +77,4 @@ class SignUpForm extends Component {
   }
 }
 
-export default SignUpForm;
+export default connect(state => state)(SignUpForm);
