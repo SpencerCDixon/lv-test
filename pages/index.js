@@ -5,54 +5,37 @@ import SubTitle from '../components/SubTitle';
 import HeroImage from '../components/HeroImage';
 import Logo from '../components/Logo';
 import SignUpForm from '../components/SignUpForm';
-import { Provider } from 'react-redux'
-import { initStore } from '../redux/store'
-import reducer from '../redux/modules';
+import withRedux from '../containers/withRedux';
 import { Flex, Box } from 'reflexbox';
 
-export default class ReduxContainer extends React.Component {
-  static getInitialProps({req}) {
-    const isServer = !!req
-    const store = initStore(reducer, undefined, isServer)
-    return { initialState: store.getState(), isServer }
-  }
+const HomePage = () => (
+  <MainLayout title="FREE Learning Profile Assessment">
+    <HeroImage />
+    <div style={{height: '100vh', background: 'black'}}>
+      <Page>
+        <div style={{position: 'absolute', top: 20, left: 20}}>
+          <Logo />
+        </div>
 
-  constructor (props) {
-    super(props)
-    this.store = initStore(reducer, props.initialState, props.isServer)
-  }
+        <Flex flexColumn align="center" justify="center" style={{height: '100%'}}>
+          <Box my={1}>
+            <Title>Transformative Learning Experiences</Title>
+          </Box>
 
-  render() {
-    return (
-      <Provider store={this.store}>
-        <MainLayout title="FREE Learning Profile Assessment">
-          <HeroImage />
-          <div style={{height: '100vh', background: 'black'}}>
-            <Page>
-              <div style={{position: 'absolute', top: 20, left: 20}}>
-                <Logo />
-              </div>
+          <Box my={1}>
+            <Title style={{fontSize: '1.5em'}}>Tailored To The Way You Learn</Title>
+          </Box>
 
-              <Flex flexColumn align="center" justify="center" style={{height: '100%'}}>
-                <Box my={1}>
-                  <Title>Transformative Learning Experiences</Title>
-                </Box>
+          <Box mt={2} mb={1}>
+            <SubTitle>
+              Discover Your Learning Profile
+            </SubTitle>
+            <SignUpForm />
+          </Box>
+        </Flex>
+      </Page>
+    </div>
+  </MainLayout>
+);
 
-                <Box my={1}>
-                  <Title style={{fontSize: '1.5em'}}>Tailored To The Way You Learn</Title>
-                </Box>
-
-                <Box mt={2} mb={1}>
-                  <SubTitle>
-                    Discover Your Learning Profile
-                  </SubTitle>
-                  <SignUpForm />
-                </Box>
-              </Flex>
-            </Page>
-          </div>
-        </MainLayout>
-      </Provider>
-    )
-  }
-}
+export default withRedux(HomePage);
