@@ -1,11 +1,12 @@
 import { combineReducers } from 'redux';
-import { reducer as formReducer } from 'redux-form'
+import example from './example';
 import user from './user';
 
-export default combineReducers({
-  // Libraries
-  form: formReducer,
+import { reducer as formReducer } from 'redux-form'
 
-  // Personal
+export default combineReducers({
+  [example.constants.NAME]: example.reducer,
   [user.constants.NAME]: user.reducer,
+
+  form: formReducer,
 });
