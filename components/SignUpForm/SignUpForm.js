@@ -9,7 +9,7 @@ import { Flex, Box } from 'reflexbox';
 
 class SignUpForm extends Component {
   render() {
-    const { handleSubmit } = this.props;
+    const { handleSubmit, invalid, pristine, submitting } = this.props;
 
     return (
       <Flex flexColumn>
@@ -38,7 +38,7 @@ class SignUpForm extends Component {
         </Box>
 
         <Box my={1}>
-          <Button onClick={handleSubmit}>
+          <Button onClick={handleSubmit} disabled={invalid || pristine || submitting}>
             Become A Better Learner
           </Button>
         </Box>

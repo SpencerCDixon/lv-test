@@ -12,6 +12,7 @@
   "keywords": [],
   "author": "Spencer Dixon <spencercdixon@gmail.com> (http://spencerdixon.com/)",
   "dependencies": {
+    "color": "^1.0.3",
     "isomorphic-fetch": "^2.2.1",
     "next": "^1.2.3",
     "react-redux": "^5.0.1",

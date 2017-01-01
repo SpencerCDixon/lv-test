@@ -1,4 +1,5 @@
 import css from 'next/css';
+import Color from 'color';
 
 export const colors = {
   white: '#fff',
@@ -6,6 +7,14 @@ export const colors = {
   primary: '#52BAD5',    // main blue color
   error: '#e85c41',      // orangish red error color
   lightGray: '#979797',  // gray used for form field border
+}
+
+export function lighten(col, amt) {
+  return Color(col).lighten(amt).hsl().string();
+}
+
+export function darken(col, amt) {
+  return Color(col).darken(amt).hsl().string();
 }
 
 export const fonts = {
