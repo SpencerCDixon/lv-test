@@ -1,4 +1,4 @@
-import { CALL_IAM } from '../../middleware/api';
+import { CALL_API } from '../../middleware/api';
 
 // Constants
 export const NAME = '<%= camelEntityName %>';

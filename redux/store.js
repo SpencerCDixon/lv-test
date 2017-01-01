@@ -3,15 +3,16 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 
 // Redux Middlewares
 import thunkMiddleware from 'redux-thunk';
+import apiMiddleware from './middleware/api';
 
 const isProd = process.env.NODE_ENV === 'production';
 
 // Create middlewares based on if in dev/prod
 let middlewares;
 if (isProd) {
-  middlewares = [thunkMiddleware];
+  middlewares = [thunkMiddleware, apiMiddleware];
 } else {
-  middlewares = [thunkMiddleware];
+  middlewares = [thunkMiddleware, apiMiddleware];
 }
 
 export const initStore = (reducer, initialState, isServer) => {

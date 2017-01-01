@@ -4,7 +4,7 @@ import Title from '../components/Title';
 import SubTitle from '../components/SubTitle';
 import HeroImage from '../components/HeroImage';
 import Logo from '../components/Logo';
-import SignUpForm from '../components/SignUpForm';
+import SignUpFormContainer from '../components/SignUpFormContainer';
 import withRedux from '../containers/withRedux';
 import { Flex, Box } from 'reflexbox';
 
@@ -30,7 +30,7 @@ const HomePage = () => (
             <SubTitle>
               Discover Your Learning Profile
             </SubTitle>
-            <SignUpForm />
+            <SignUpFormContainer />
           </Box>
         </Flex>
       </Page>

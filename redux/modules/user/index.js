@@ -1,7 +1,13 @@
-import reducer, { actions, constants } from './duck';
+import reducer, { constants, actions } from './duck';
+import * as selectors from './selectors';
+import * as components from './components';
+import * as sagas from './sagas';
 
 export default {
-  reducer,
   actions,
-  constants
-}
+  components,
+  constants,
+  reducer,
+  sagas,
+  selectors,
+};

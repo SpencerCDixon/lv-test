@@ -8,16 +8,9 @@ import Api from '../../util/lvApi.js';
 import { Flex, Box } from 'reflexbox';
 
 class SignUpForm extends Component {
-  constructor(props) {
-    super(props);
-    this.api = new Api();
-  }
-
-  handleSubmit = () => {
-    console.log('DISPATCHING');
-  }
-
   render() {
+    const { handleSubmit } = this.props;
+
     return (
       <Flex flexColumn>
         <Box my={1} style={{width: '100%'}}>
@@ -45,7 +38,7 @@ class SignUpForm extends Component {
         </Box>
 
         <Box my={1}>
-          <Button onClick={this.handleSubmit}>
+          <Button onClick={handleSubmit}>
             Become A Better Learner
           </Button>
         </Box>
@@ -56,6 +49,7 @@ class SignUpForm extends Component {
 
 export default reduxForm({
   form: 'SignUpForm',
+  fields: ['firstName', 'lastName', 'email'],
   validate: function(values) {
     const errors = {};
     if (!values.firstName) {
