@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import { animations, colors } from '../styles';
 import css from 'next/css';
 
 const pulse = css.keyframes({
@@ -8,32 +9,46 @@ const pulse = css.keyframes({
 });
 
 const activeState = {
-  borderColor: '#52BAD5',
-  animation: `${pulse} 2s infinite`,
+  borderColor: colors.primary,
+  animation: `${animations.primaryPulse} 2s infinite`,
 };
 
-export default ({ field, ...rest }) => {
-  const hasError = field.meta.touched && field.meta.error
-  const input = css({
+const errorState = {
+  animation: `${animations.errorPulse} 2s infinite`,
+};
+
+export default ({ input, meta, ...rest }) => {
+  const hasError = meta.touched && meta.error
+  const fieldCss = css({
     width: '100%',
     padding: '10px',
     borderRadius: '3px',
-    border: '2px solid #979797',
+    border: '2px solid',
+    borderColor: hasError ? colors.error : colors.lightGray,
     background: 'rgba(255,255,255,0.1)',
     color: 'white',
     textAlign: 'center',
     boxSizing: 'border-box',
-    ':focus': activeState,
-    ':active': activeState,
+    ':focus': hasError ? errorState : activeState,
+    ':active': hasError ? errorState : activeState,
   });
-  const error = css({
-    color: 'red',
+
+  const errorCss = css({
+    color: colors.error,
+    fontSize: '.8em',
+    fontStyle: 'italic',
+    position: 'absolute',
+    top: 15,
+    right: 'initial',
+    marginLeft: 5,
+    animation: `${animations.fadeIn} .5s`,
+    width: '100%',
   });
 
   return (
-    <div>
-      <input className={input} {...field.input} {...rest} />
-      {field.meta.touched && field.meta.error && <span className={error}>{field.meta.error}</span>}
+    <div style={{position: 'relative'}}>
+      <input className={fieldCss} {...input} {...rest} />
+      {meta.touched && meta.error && <span className={errorCss}>{meta.error}</span>}
     </div>
   )
 };

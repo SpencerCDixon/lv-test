@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { reduxForm } from 'redux-form';
+import { reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
 import Input from '../Input';
 import Button from '../Button';
@@ -10,61 +10,37 @@ import { Flex, Box } from 'reflexbox';
 class SignUpForm extends Component {
   constructor(props) {
     super(props);
-    this.state = { fname: '', lname: '', email: '' };
     this.api = new Api();
   }
 
-  handleFNameUpdate = (e) => {
-    this.setState({fname: e.target.value})
-  }
-  handleLNameUpdate = (e) => {
-    this.setState({lname: e.target.value})
-  }
-  handleEmailUpdate = (e) => {
-    this.setState({email: e.target.value})
-  }
   handleSubmit = () => {
     console.log('DISPATCHING');
-    this.props.dispatch({type: 'CREATE'});
-    // this.api.createUser({
-      // firstName: this.state.fname,
-      // lastName: this.state.lname,
-      // email: this.state.email,
-      // password: 'password',
-    // })
-    // .then(json => {
-      // console.log({json});
-      // this.setState({email: '', fname: '', lname: ''})
-    // });
   }
 
   render() {
     return (
       <Flex flexColumn>
         <Box my={1} style={{width: '100%'}}>
-          <Input 
-            value={this.state.fname}
+          <Field 
+            name="firstName"
+            component={Input}
             placeholder="First Name" 
-            type="text" 
-            onChange={this.handleFNameUpdate} 
           />
         </Box>
 
         <Box my={1}>
-          <Input 
-            value={this.state.lname}
+          <Field 
+            name="lastName"
+            component={Input}
             placeholder="Last Name" 
-            type="text" 
-            onChange={this.handleLNameUpdate} 
           />
         </Box>
 
         <Box my={1}>
-          <Input 
-            value={this.state.email}
+          <Field 
+            name="email"
+            component={Input}
             placeholder="Email" 
-            type="text" 
-            onChange={this.handleEmailUpdate} 
           />
         </Box>
 
@@ -78,4 +54,17 @@ class SignUpForm extends Component {
   }
 }
 
-export default connect(state => state)(SignUpForm);
+export default reduxForm({
+  form: 'SignUpForm',
+  validate: function(values) {
+    const errors = {};
+    if (!values.firstName) {
+      errors.firstName = 'First name required to take test.';
+    }
+
+    if (!values.email) {
+      errors.email = 'Email required. We will never spam.';
+    }
+    return errors;
+  },
+})(SignUpForm);
