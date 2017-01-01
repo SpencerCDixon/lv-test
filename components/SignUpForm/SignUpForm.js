@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import Input from '../Input';
 import Button from '../Button';
