@@ -1,10 +1,11 @@
 import 'isomorphic-fetch';
 export const CALL_API = Symbol('Call LV API');
 
+let baseUrl;
 if (process.env.NODE_ENV === 'production') {
   baseUrl = 'https://lv-staging.herokuapp.com';
 } else {
-  baseUrl = 'http//localhost:3001';
+  baseUrl = 'http://localhost:3001';
 }
 
 function checkStatus(response) {
