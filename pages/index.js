@@ -19,7 +19,7 @@ const HomePage = () => (
 
         <Flex flexColumn align="center" justify="center" style={{height: '100%'}}>
           <Box my={1}>
-            <Title>Transformative Learning Experiences</Title>
+            <Title>Transformative Learning Experiences Staging</Title>
           </Box>
 
           <Box my={1}>

@@ -7,7 +7,8 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "deploy": "now"
+    "deploy": "now",
+    "deploy:staging": "now -e LV_ENV='staging'"
   },
   "keywords": [],
   "author": "Spencer Dixon <spencercdixon@gmail.com> (http://spencerdixon.com/)",
