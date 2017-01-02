@@ -1,15 +1,11 @@
 import 'isomorphic-fetch';
 export const CALL_API = Symbol('Call LV API');
 
-// let baseUrl
-
-// if (process.env.NODE_ENV === 'staging') {
-  // baseUrl = 'https://lv-staging.herokuapp.com';
-// } else if (process.env.NODE_ENV === 'production') {
-  // baseUrl = 'https://learningventures-prod.herokuapp.com';
-// } else {
-const baseUrl = process.env.API_URL
-// }
+if (process.env.NODE_ENV === 'production') {
+  baseUrl = 'https://lv-staging.herokuapp.com';
+} else {
+  baseUrl = 'http//localhost:3001';
+}
 
 function checkStatus(response) {
   if (response.status >= 200 && response.status < 300) {
