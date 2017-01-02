@@ -1,15 +1,15 @@
 import 'isomorphic-fetch';
 export const CALL_API = Symbol('Call LV API');
 
-let baseUrl
+// let baseUrl
 
-if (process.env.LV_ENV === 'staging') {
-  baseUrl = 'https://lv-staging.herokuapp.com';
-} else if (process.env.NODE_ENV === 'production') {
-  baseUrl = 'https://learningventures-prod.herokuapp.com';
-} else {
-  baseUrl = 'http://localhost:3001';
-}
+// if (process.env.NODE_ENV === 'staging') {
+  // baseUrl = 'https://lv-staging.herokuapp.com';
+// } else if (process.env.NODE_ENV === 'production') {
+  // baseUrl = 'https://learningventures-prod.herokuapp.com';
+// } else {
+const baseUrl = process.env.API_URL
+// }
 
 function checkStatus(response) {
   if (response.status >= 200 && response.status < 300) {
@@ -37,6 +37,7 @@ function callApi(endpoint, options) {
     headers,
     method,
     body,
+    mode: 'cors',
   })
   .then(checkStatus)
   .then(response => response.json());
