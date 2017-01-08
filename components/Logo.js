@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react';
 import css from 'next/css';
 
-export default ({ }) => (
-  <img src="/static/logo.svg" width="150" />
+export default ({ black = false }) => (
+  <img src={`/static/logo-${black ? 'black' : 'white'}.svg`} width="150" />
 )
 
 const styles = css({
