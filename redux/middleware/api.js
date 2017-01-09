@@ -69,11 +69,13 @@ export default store => next => action => {
       type: successType,
         ...rest,
     });
-  }).catch(error => {
+    return payload;
+  }, error => {
     next({
       payload: error.message,
       type: failureType,
         ...rest,
     });
+    return error;
   });
 }

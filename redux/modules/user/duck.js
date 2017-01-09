@@ -1,4 +1,6 @@
 import { CALL_API } from '../../middleware/api';
+import { v1 } from 'uuid';
+import storage from '../../../util/localStorage';
 
 // Constants
 export const NAME           = 'user';
@@ -11,21 +13,26 @@ export const constants = {
   CREATE, CREATE_SUCCESS, CREATE_FAIL,
 };
 
-export const createUser = ({firstName, lastName, email}) => ({
-  [CALL_API]: {
-    types: [CREATE, CREATE_SUCCESS, CREATE_FAIL],
-    endpoint: '/users',
-    method: 'POST',
-    data: {
-      user: {
-        first_name: firstName,
-        last_name: lastName,
-        email,
-        password: 'password',
+export const createUser = ({firstName, lastName, email, password}) => dispatch => {
+  dispatch({
+    [CALL_API]: {
+      types: [CREATE, CREATE_SUCCESS, CREATE_FAIL],
+      endpoint: '/users',
+      method: 'POST',
+      data: {
+        user: {
+          first_name: firstName,
+          last_name: lastName,
+          email,
+          password: password || v1(),
+          password_reset_id: v1(),
+        }
       }
     }
-  }
-});
+  }).then(({authentication}) => {
+    storage.save(authentication);
+  })
+};
 
 // Action Creators
 export const actions = {
