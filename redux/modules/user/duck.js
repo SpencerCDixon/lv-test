@@ -1,6 +1,7 @@
+import Router from 'next/router';
 import { CALL_API } from '../../middleware/api';
 import { v1 } from 'uuid';
-import storage from '../../../util/localStorage';
+import { saveState } from '../../../util/localStorage';
 
 // Constants
 export const NAME           = 'user';
@@ -30,7 +31,8 @@ export const createUser = ({firstName, lastName, email, password}) => dispatch =
       }
     }
   }).then(({authentication}) => {
-    storage.save(authentication);
+    saveState(authentication);
+    Router.push('/learning_profile');
   })
 };
 
