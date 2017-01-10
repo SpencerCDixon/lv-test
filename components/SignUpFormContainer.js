@@ -1,15 +1,15 @@
 import React from 'react';
 import SignUpForm from './SignUpForm';
 import { connect } from 'react-redux';
-import { createUser } from '../redux/modules/user/duck.js';
+import { requestCreateUser } from '../redux/modules/user/duck.js';
 
 class FormContainer extends React.Component {
   render() {
-    return <SignUpForm onSubmit={this.props.createUser} />
+    return <SignUpForm onSubmit={this.props.requestCreateUser} />
   }
 }
 
 export default connect(state => state, {
-  createUser,
+  requestCreateUser,
 })(FormContainer);
 

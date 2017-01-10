@@ -1,44 +1,31 @@
-import Router from 'next/router';
-import { CALL_API } from '../../middleware/api';
-import { v1 } from 'uuid';
 import { saveState } from '../../../util/localStorage';
 
 // Constants
-export const NAME           = 'user';
-export const CREATE         = 'user/CREATE';
-export const CREATE_SUCCESS = 'user/CREATE_SUCCESS';
-export const CREATE_FAIL    = 'user/CREATE_FAIL';
+export const NAME                = 'user';
+export const REQUEST_CREATE_USER = 'user/REQUEST_CREATE_USER';
+export const CREATE_SUCCESS      = 'user/CREATE_SUCCESS';
+export const CREATE_FAIL         = 'user/CREATE_FAIL';
 
 export const constants = {
   NAME,
-  CREATE, CREATE_SUCCESS, CREATE_FAIL,
+  REQUEST_CREATE_USER, CREATE_SUCCESS, CREATE_FAIL,
 };
 
-export const createUser = ({firstName, lastName, email, password}) => dispatch => {
-  dispatch({
-    [CALL_API]: {
-      types: [CREATE, CREATE_SUCCESS, CREATE_FAIL],
-      endpoint: '/users',
-      method: 'POST',
-      data: {
-        user: {
-          first_name: firstName,
-          last_name: lastName,
-          email,
-          password: password || v1(),
-          password_reset_id: v1(),
-        }
-      }
-    }
-  }).then(({authentication}) => {
-    saveState(authentication);
-    Router.push('/learning_profile');
-  })
-};
+export const requestCreateUser = (data) => ({
+  type: REQUEST_CREATE_USER, data
+});
+export const createUserSuccess = user => ({
+  type: CREATE_SUCCESS, user,
+});
+export const createUserFail = error => ({
+  type: CREATE_FAIL, error
+});
 
 // Action Creators
 export const actions = {
-  createUser,
+  requestCreateUser,
+  createUserSuccess,
+  createUserFail,
 };
 
 // Reducer

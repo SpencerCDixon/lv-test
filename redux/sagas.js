@@ -1,4 +1,5 @@
 import { fork } from 'redux-saga/effects';
+import Router from 'next/router';
 
 import user from './modules/user';
 
@@ -10,3 +11,7 @@ export default function* rootSaga() {
   ];
 }
 
+// Utility Sagas
+export function* pushRoute(route) {
+  return Router.push(route);
+}

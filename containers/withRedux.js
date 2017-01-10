@@ -7,11 +7,11 @@ import { initStore } from '../redux/store'
 import rootSaga from '../redux/sagas';
 import { sagaMiddleware } from '../redux/store';
 
-
 export default function withRedux(ReduxComponent) {
   return class ReduxContainer extends React.Component {
     static getInitialProps ({ req }) {
       const isServer = !!req
+      // TODO: populate initialState with localStorage if not on server.
       const store = initStore(reducer, undefined, isServer)
       return { initialState: store.getState(), isServer }
     }
