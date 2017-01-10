@@ -19,6 +19,7 @@ export function darken(col, amt) {
 
 export const fonts = {
   primary: 'Montserrat',
+  secondary: 'Ubuntu'
 };
 
 // Reusable Animations

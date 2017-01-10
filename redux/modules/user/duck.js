@@ -30,11 +30,14 @@ export const actions = {
 
 // Reducer
 export const defaultState = {
-  exists: true,
+  user: null,
 };
 
 export default function(state = defaultState, action) {
   switch (action.type) {
+    case CREATE_SUCCESS:
+      return {...state, user: action.authentication};
+
     default:
       return state;
   }

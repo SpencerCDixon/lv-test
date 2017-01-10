@@ -6,7 +6,7 @@ import { pushRoute } from '~/redux/sagas/global';
 function* createUserSaga({data}) {
   try {
     const user = yield call(Api.createUser, data);
-    yield call(pushRoute, '/learning_profile');
+    yield call(pushRoute, '/assessment');
     yield put(actions.createUserSuccess(user));
   } catch (e) {
     yield put(actions.createUserFail(e));
