@@ -1,7 +1,7 @@
 import { fork, call, put, takeEvery } from 'redux-saga/effects';
 import { constants as at, actions } from './duck';
-import * as Api from '../../../util/lvApi.js';
-import { pushRoute } from '../../sagas/global';
+import * as Api from '~/util/lvApi.js';
+import { pushRoute } from '~/redux/sagas/global';
 
 function* createUserSaga({data}) {
   try {
