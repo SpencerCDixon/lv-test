@@ -9,7 +9,7 @@ module.exports = {
     if (modulePath) { 
       return {
         __module__: function(options) {
-          return `modules/${modulePath}/components`;
+          return `redux/modules/${modulePath}/components`;
         }
       }
     }

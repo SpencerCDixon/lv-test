@@ -12,7 +12,7 @@ module.exports = {
     if (modulePath) { 
       return {
         __module__: function(options) {
-          return `modules/${modulePath}/components`;
+          return `redux/modules/${modulePath}/components`;
         }
       }
     }
@@ -30,7 +30,7 @@ module.exports = {
       const module = opts.entity.options.module;
       const compPath = path.resolve('redux', 'modules', module, 'components', 'index.js');
 
-      const importString = `export ${name} from './${name}';`;
+      const importString = `export { ${name} } from './${name}';`;
       const content = fs.readFileSync(compPath).toString().split('\n');
       content.push(importString);
 

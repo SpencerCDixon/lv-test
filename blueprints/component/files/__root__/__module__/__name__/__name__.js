@@ -3,7 +3,7 @@ import React, { Component, PropTypes } from 'react';
 const propTypes = {
 };
 
-class <%= pascalEntityName %> extends Component {
+export class <%= pascalEntityName %> extends Component {
   render() {
     return (
       <div>
