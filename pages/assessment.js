@@ -2,6 +2,9 @@ import { MainLayout, Container } from '~/layouts';
 import withRedux from '~/containers/withRedux';
 import Steps from '~/components/Steps';
 import { Flex, Box } from 'reflexbox';
+import assessment from '~/redux/modules/assessment';
+
+const { PasswordReset } = assessment.components;
 
 const steps = [
   "Create Password",
@@ -14,6 +17,7 @@ const Assessment = () => (
   <MainLayout title="Learning Profile Assessment" blackLogo>
     <Container style={{marginTop: 75}}>
       <Steps steps={steps} currentStep={1} />
+      <PasswordReset />
     </Container>
   </MainLayout>
 )

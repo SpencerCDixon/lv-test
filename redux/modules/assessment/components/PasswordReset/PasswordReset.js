@@ -3,7 +3,7 @@ import React, { Component, PropTypes } from 'react';
 const propTypes = {
 };
 
-class PasswordReset extends Component {
+export class PasswordReset extends Component {
   render() {
     return (
       <div>

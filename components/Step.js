@@ -12,7 +12,7 @@ export default ({ title, num, active = false }) => {
   const boxStyle = css({
     width: 120,
     height: 75,
-    border: `2px solid ${active ? colors.primary : colors.lightGray}`,
+    border: `1px solid ${active ? colors.primary : colors.lightGray}`,
     borderRadius: '3px',
     ...common,
   });
