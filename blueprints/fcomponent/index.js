@@ -15,7 +15,7 @@ module.exports = {
     }
     return {
       __module__: function(options) {
-        return 'components';
+        return '';
       }
     }
   },
