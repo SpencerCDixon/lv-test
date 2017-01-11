@@ -5,7 +5,7 @@ import { Flex, Box } from 'reflexbox';
 const Steps = ({ steps = [], currentStep }) => (
   <Flex justify="space-around" wrap style={{width: '100%'}}>
     {steps.map((title, i) => (
-      <Box my={2}>
+      <Box my={2} key={title}>
         <Step 
           title={title} 
           active={i + 1 <= currentStep} 

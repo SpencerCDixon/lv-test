@@ -1,6 +1,12 @@
 import css from 'next/css';
 import Color from 'color';
 
+export const mq = {
+  small: '@media(min-width: 768px)',
+  medium: '@media(min-width: 992px)',
+  large: '@media(min-width: 1200px)',
+};
+
 export const colors = {
   white: '#fff',
   black: '#000',

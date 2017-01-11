@@ -1,16 +1,18 @@
 import React, { PropTypes } from 'react';
 import css from 'next/css';
 
-export default ({ children }) => (
-  <div className={styles}>
+export const FullPage = ({ children, ...rest }) => (
+  <div className={styles} {...rest}>
     {children}
   </div>
 )
 
 const styles = css({
-  height: '100%',
+  height: '100vh',
   width: '100%',
   top: 0,
   left: 0,
   position: 'absolute',
 });
+
+export default FullPage;
