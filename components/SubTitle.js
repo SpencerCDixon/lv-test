@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { fonts } from '../styles';
-import css from 'next/css';
+import { css } from 'glamor';
 
 export default ({ children }) => (
   <h2 className={styles}>

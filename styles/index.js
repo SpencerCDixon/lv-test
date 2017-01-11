@@ -1,4 +1,4 @@
-import css from 'next/css';
+import { css } from 'glamor';
 import Color from 'color';
 
 export const mq = {

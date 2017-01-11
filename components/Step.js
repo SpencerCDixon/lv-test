@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { Flex, Box } from 'reflexbox';
 import { fonts, colors } from '~/styles';
-import css from 'next/css';
+import { css } from 'glamor';
 
 export default ({ title, num, active = false }) => {
   const common = {

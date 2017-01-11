@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { fonts } from '../styles';
-import css from 'next/css';
+import { css } from 'glamor';
 
 export default ({ children, bold = false, style }) => {
   const fontWeight = bold ? 700 : 400;

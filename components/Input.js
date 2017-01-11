@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { animations, colors } from '../styles';
-import css from 'next/css';
+import { css } from 'glamor';
 
 const activeState = {
   borderColor: colors.primary,

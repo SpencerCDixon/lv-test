@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { colors, lighten } from '../styles';
-import css from 'next/css';
+import { css } from 'glamor';
 
 export default ({ children, ...rest }) => (
   <button className={styles} {...rest}>
