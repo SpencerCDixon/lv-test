@@ -28,7 +28,7 @@ module.exports = {
       this.ui.writeInfo('Adding component export statement');
       const name = opts.entity.name;
       const module = opts.entity.options.module;
-      const compPath = path.resolve('src', 'modules', module, 'components', 'index.js');
+      const compPath = path.resolve('redux', 'modules', module, 'components', 'index.js');
 
       const importString = `export ${name} from './${name}';`;
       const content = fs.readFileSync(compPath).toString().split('\n');
