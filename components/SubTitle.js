@@ -11,7 +11,7 @@ export default ({ children }) => (
 const styles = css({
   color: 'white',
   opacity: '0.5',
-  fontFamily: fonts.primary,
+  fontFamily: fonts.landing,
   fontWeight: 700,
   letterSpacing: '2px',
   fontSize: '11px',

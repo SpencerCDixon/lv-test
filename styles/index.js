@@ -1,6 +1,7 @@
 import { css } from 'glamor';
 import Color from 'color';
 
+// Important 'Theme'/variables used throughout application
 export const mq = {
   small: '@media(min-width: 768px)',
   medium: '@media(min-width: 992px)',
@@ -15,17 +16,10 @@ export const colors = {
   lightGray: '#979797',  // gray used for form field border
 }
 
-export function lighten(col, amt) {
-  return Color(col).lighten(amt).hsl().string();
-}
-
-export function darken(col, amt) {
-  return Color(col).darken(amt).hsl().string();
-}
-
 export const fonts = {
-  primary: 'Montserrat',
-  secondary: 'Ubuntu'
+  primary: 'Andada',
+  secondary: 'Ubuntu',
+  landing: 'Montserrat',
 };
 
 // Reusable Animations
@@ -45,3 +39,12 @@ export const animations = {
   errorPulse: shadowPulse(colors.error),
   fadeIn,
 };
+
+// Utility Functions
+export function lighten(col, amt) {
+  return Color(col).lighten(amt).hsl().string();
+}
+
+export function darken(col, amt) {
+  return Color(col).darken(amt).hsl().string();
+}

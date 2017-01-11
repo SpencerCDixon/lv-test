@@ -6,7 +6,7 @@ export default ({ children, bold = false, style }) => {
   const fontWeight = bold ? 700 : 400;
   const styles = css({
     textAlign: 'center',
-    fontFamily: fonts.primary,
+    fontFamily: fonts.landing,
     color: 'white',
     fontWeight,
     margin: 0,
