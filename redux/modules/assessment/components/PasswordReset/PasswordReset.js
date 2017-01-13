@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { P, H1 } from '~/components';
+import { Button, P, H1 } from '~/components';
 import Input from '~/components/Input';
 import { Flex, Box } from 'reflexbox';
 import { reduxForm, Field } from 'redux-form';
@@ -27,6 +27,14 @@ class PasswordReset extends Component {
             placeholder="New Password"
           />
         </Box>
+        <Flex justify="flex-end">
+          <Box mx={2}>
+            <Button>Skip</Button>
+          </Box>
+          <Box>
+            <Button primary>Save</Button>
+          </Box>
+        </Flex>
       </Flex>
     );
   }
