@@ -1,4 +1,5 @@
 import { MainLayout, Container } from '~/layouts';
+import Input from '~/components/Input';
 import withRedux from '~/containers/withRedux';
 import Steps from '~/components/Steps';
 import { Flex, Box } from 'reflexbox';

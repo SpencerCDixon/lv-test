@@ -1,1 +1,2 @@
-export { PasswordReset } from './PasswordReset.js';
+import PasswordReset from './PasswordReset';
+export default PasswordReset;

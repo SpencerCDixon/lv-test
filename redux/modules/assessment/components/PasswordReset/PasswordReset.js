@@ -1,12 +1,14 @@
 import React, { Component, PropTypes } from 'react';
 import { P, H1 } from '~/components';
-import { Flex } from 'reflexbox';
+import Input from '~/components/Input';
+import { Flex, Box } from 'reflexbox';
+import { reduxForm, Field } from 'redux-form';
 
 const sx = {
   maxWidth: 750,
 };
 
-export class PasswordReset extends Component {
+class PasswordReset extends Component {
   render() {
     return (
       <Flex flexColumn mx={1} style={sx}>
@@ -16,9 +18,28 @@ export class PasswordReset extends Component {
           associated to your email.  If you'd prefer to continue without access
           to your results feel free to click 'Skip'.
         </P>
+
+        <Box my={3}>
+          <Field 
+            label="Password"
+            name="newPassword" 
+            component={Input}
+            placeholder="New Password"
+          />
+        </Box>
       </Flex>
     );
   }
 }
 
-export default PasswordReset;
+export default reduxForm({
+  form: 'PasswordResetForm',
+  fields: ['newPassword'],
+  validate: function(values) {
+    const errors = {};
+    if (!values.newPassword) {
+      errors.newPassword = 'Required';
+    }
+    return errors;
+  },
+})(PasswordReset);

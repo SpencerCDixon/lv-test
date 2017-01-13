@@ -13,7 +13,7 @@ export const colors = {
   black: '#000',
   primary: '#52BAD5',    // main blue color
   error: '#e85c41',      // orangish red error color
-  lightGray: '#979797',  // gray used for form field border
+  lightGray: '#979797',  
 }
 
 export const fonts = {
@@ -21,6 +21,14 @@ export const fonts = {
   secondary: 'Ubuntu',
   landing: 'Montserrat',
 };
+
+// Forms
+export const placeholder = (css) => ({
+  '::-webkit-input-placeholder': css,
+  '::-moz-placeholder': css,
+  ':-ms-input-placeholder': css,
+  ':-moz-placeholder': css,
+})
 
 // Reusable Animations
 const shadowPulse = color => css.keyframes({

@@ -1,1 +1,5 @@
-export { PasswordReset } from './PasswordReset';
+import PasswordReset from './PasswordReset';
+
+export {
+  PasswordReset
+}

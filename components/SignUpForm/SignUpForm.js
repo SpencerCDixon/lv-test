@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
-import Input from '../Input';
+import CtaInput from '../Input';
 import Button from '../Button';
 import fetch from 'isomorphic-fetch';
 import Api from '../../util/lvApi.js';
@@ -16,7 +16,7 @@ class SignUpForm extends Component {
         <Box my={1} style={{width: '100%'}}>
           <Field 
             name="firstName"
-            component={Input}
+            component={CtaInput}
             placeholder="First Name" 
           />
         </Box>
@@ -24,7 +24,7 @@ class SignUpForm extends Component {
         <Box my={1}>
           <Field 
             name="lastName"
-            component={Input}
+            component={CtaInput}
             placeholder="Last Name" 
           />
         </Box>
@@ -32,8 +32,10 @@ class SignUpForm extends Component {
         <Box my={1}>
           <Field 
             name="email"
-            component={Input}
+            component={CtaInput}
             placeholder="Email" 
+            isCta
+            hasBackground
           />
         </Box>
 
