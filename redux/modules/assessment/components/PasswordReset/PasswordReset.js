@@ -9,6 +9,11 @@ const sx = {
 };
 
 class PasswordReset extends Component {
+  state = {
+    isLoading: false
+  }
+  handleClick = () => this.setState({isLoading: !this.state.isLoading})
+
   render() {
     return (
       <Flex flexColumn mx={1} style={sx}>
@@ -32,7 +37,7 @@ class PasswordReset extends Component {
             <Button>Skip</Button>
           </Box>
           <Box>
-            <Button primary>Save</Button>
+            <Button primary loading={this.state.isLoading} onClick={this.handleClick}>Save</Button>
           </Box>
         </Flex>
       </Flex>
