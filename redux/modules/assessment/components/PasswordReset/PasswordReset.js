@@ -30,6 +30,7 @@ class PasswordReset extends Component {
             name="newPassword" 
             component={Input}
             placeholder="New Password"
+            type="password"
           />
         </Box>
         <Flex justify="flex-end">

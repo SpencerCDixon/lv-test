@@ -18,8 +18,8 @@ export default ({ input, meta, ...rest }) => {
     padding: '10px',
     borderRadius: '3px',
     border: '2px solid',
-    borderColor: hasError ? colors.error : lighten(colors.lightGray, 0.3),
-    background: hasBackground ? 'rgba(255,255,255,0.1)' : '',
+    borderColor: hasError ? colors.error : colors.lightGray,
+    background: 'rgba(255,255,255,0.1)',
     color: 'white',
     textAlign: 'center',
     boxSizing: 'border-box',
@@ -28,7 +28,7 @@ export default ({ input, meta, ...rest }) => {
   });
 
   const errorCss = css({
-    color: isCta ? colors.white : colors.error,
+    color: colors.white,
     fontSize: '.8em',
     fontStyle: 'italic',
     position: 'absolute',

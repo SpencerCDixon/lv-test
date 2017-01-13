@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
-import CtaInput from '../Input';
+import CtaInput from '../CtaInput';
 import Button from '../Button';
 import fetch from 'isomorphic-fetch';
 import Api from '../../util/lvApi.js';
@@ -34,13 +34,12 @@ class SignUpForm extends Component {
             name="email"
             component={CtaInput}
             placeholder="Email" 
-            isCta
             hasBackground
           />
         </Box>
 
         <Box my={1}>
-          <Button onClick={handleSubmit} disabled={invalid || pristine || submitting}>
+          <Button primary onClick={handleSubmit} disabled={invalid || pristine || submitting}>
             Become A Better Learner
           </Button>
         </Box>
