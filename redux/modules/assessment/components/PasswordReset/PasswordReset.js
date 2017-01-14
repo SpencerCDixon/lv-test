@@ -4,6 +4,10 @@ import { Flex, Box } from 'reflexbox';
 import { reduxForm, Field } from 'redux-form';
 import { compose } from 'redux';
 
+const sx = {
+  maxWidth: 750,
+};
+
 class PasswordReset extends Component {
   state = {
     isLoading: false
