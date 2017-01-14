@@ -5,11 +5,6 @@ import { reduxForm, Field } from 'redux-form';
 import { compose } from 'redux';
 
 class PasswordReset extends Component {
-  state = {
-    isLoading: false
-  }
-  handleClick = () => this.setState({isLoading: !this.state.isLoading})
-
   render() {
     return (
       <Flex flexColumn mx={1} style={sx}>
@@ -34,7 +29,7 @@ class PasswordReset extends Component {
             <Button>Skip</Button>
           </Box>
           <Box>
-            <Button primary loading={this.state.isLoading} onClick={this.handleClick}>Save</Button>
+            <Button onClick={this.handleSave}>Save</Button>
           </Box>
         </Flex>
       </Flex>
