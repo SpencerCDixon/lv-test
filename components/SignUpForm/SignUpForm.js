@@ -34,7 +34,6 @@ class SignUpForm extends Component {
             name="email"
             component={CtaInput}
             placeholder="Email" 
-            hasBackground
           />
         </Box>
 

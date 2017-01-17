@@ -1,31 +1,27 @@
-import { saveState } from '../../../util/localStorage';
+import { saveState } from '~/util/localStorage';
+import { createRequestTypes, action } from '~/util/reducerUtil';
 
 // Constants
-export const NAME                = 'user';
-export const REQUEST_CREATE_USER = 'user/REQUEST_CREATE_USER';
-export const CREATE_SUCCESS      = 'user/CREATE_SUCCESS';
-export const CREATE_FAIL         = 'user/CREATE_FAIL';
+export const NAME        = 'user';
+export const CREATE_USER = createRequestTypes('CREATE_USER', NAME);
+export const SIGN_UP_USER = 'user/SIGN_UP_USER';
 
 export const constants = {
   NAME,
-  REQUEST_CREATE_USER, CREATE_SUCCESS, CREATE_FAIL,
+  CREATE_USER,
+  SIGN_UP_USER,
 };
-
-export const requestCreateUser = (data) => ({
-  type: REQUEST_CREATE_USER, data
-});
-export const createUserSuccess = user => ({
-  type: CREATE_SUCCESS, user,
-});
-export const createUserFail = error => ({
-  type: CREATE_FAIL, error
-});
-
 // Action Creators
+export const createUser = {
+  request: data => action(CREATE_USER.REQUEST, data),
+  success: user => action(CREATE_USER.SUCCESS, user),
+  failure: error => action(CREATE_USER.FAILURE, error),
+};
+export const signUpUser = action(SIGN_UP_USER, data);
+
 export const actions = {
-  requestCreateUser,
-  createUserSuccess,
-  createUserFail,
+  createUser,
+  signUpUser,
 };
 
 // Reducer
@@ -35,7 +31,7 @@ export const defaultState = {
 
 export default function(state = defaultState, action) {
   switch (action.type) {
-    case CREATE_SUCCESS:
+    case CREATE_USER.SUCCESS:
       return {...state, user: action.authentication};
 
     default:

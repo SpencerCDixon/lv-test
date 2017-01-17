@@ -7,12 +7,12 @@ function* createUserSaga({data}) {
   try {
     const user = yield call(Api.createUser, data);
     yield call(pushRoute, '/assessment');
-    yield put(actions.createUserSuccess(user));
+    yield put(actions.createUser.success(user));
   } catch (e) {
-    yield put(actions.createUserFail(e));
+    yield put(actions.createUser.failure(e));
   }
 }
 
 export function* watchUser() {
-  yield fork(takeEvery, at.REQUEST_CREATE_USER, createUserSaga);
+  yield fork(takeEvery, at.SIGN_UP_USER, createUserSaga);
 }
