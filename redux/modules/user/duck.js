@@ -13,11 +13,11 @@ export const constants = {
 };
 // Action Creators
 export const createUser = {
-  request: data => action(CREATE_USER.REQUEST, data),
-  success: user => action(CREATE_USER.SUCCESS, user),
-  failure: error => action(CREATE_USER.FAILURE, error),
+  request: data => action(CREATE_USER.REQUEST, {data}),
+  success: user => action(CREATE_USER.SUCCESS, {user}),
+  failure: error => action(CREATE_USER.FAILURE, {error}),
 };
-export const signUpUser = action(SIGN_UP_USER, data);
+export const signUpUser = data => action(SIGN_UP_USER, {data});
 
 export const actions = {
   createUser,
