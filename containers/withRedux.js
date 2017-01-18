@@ -2,6 +2,7 @@ import React from 'react'
 import reducer from '../redux/rootReducer';
 import { Provider } from 'react-redux'
 import { initStore } from '../redux/store'
+import { END } from 'redux-saga';
 
 // setup redux sagas
 import rootSaga from '../redux/sagas';
@@ -13,6 +14,8 @@ export default function withRedux(ReduxComponent) {
       const isServer = !!req
       // TODO: populate initialState with localStorage if not on server.
       const store = initStore(reducer, undefined, isServer)
+      sagaMiddleware.run(rootSaga);
+      store.dispatch(END);
       return { initialState: store.getState(), isServer }
     }
 

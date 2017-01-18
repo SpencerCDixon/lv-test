@@ -1,4 +1,4 @@
-import { fork, call, put, takeEvery, select } from 'redux-saga/effects';
+import { fork, call, put, takeLatest, select } from 'redux-saga/effects';
 import { constants as at, actions } from './duck';
 import * as Api from '~/util/lvApi.js';
 import { pushRoute } from '~/redux/sagas/global';
@@ -24,5 +24,5 @@ function* updatePasswordSaga() {
 }
 
 export function* watchAssessment() {
-  yield fork(takeEvery, at.REQUEST_PASSWORD_UPDATE, updatePasswordSaga);
+  yield fork(takeLatest, at.REQUEST_PASSWORD_UPDATE, updatePasswordSaga);
 }
