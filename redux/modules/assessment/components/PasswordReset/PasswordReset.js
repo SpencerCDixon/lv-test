@@ -4,17 +4,22 @@ import { Input, Button, P, H1 } from '~/components';
 import { Flex, Box } from 'reflexbox';
 import { reduxForm, Field } from 'redux-form';
 import { compose } from 'redux';
-import { increment } from '../../duck';
+import { requestPasswordUpdate, increment } from '../../duck';
+import { getIsPassUpdating } from '../../selectors';
 
 const sx = {
   maxWidth: 750,
 };
 const propTypes = {
   increment: PropTypes.func.isRequired,
+  requestPasswordUpdate: PropTypes.func.isRequired,
+  isUpdating: PropTypes.bool.isRequired,
 };
 
 class PasswordReset extends Component {
   render() {
+    const { isUpdating } = this.props;
+
     return (
       <Flex flexColumn mx={1} style={sx}>
         <H1>Saving Your Learning Profile</H1>
@@ -38,7 +43,9 @@ class PasswordReset extends Component {
             <Button onClick={this.props.increment}>Skip</Button>
           </Box>
           <Box>
-            <Button primary>Save</Button>
+            <Button primary loading={isUpdating} onClick={this.props.requestPasswordUpdate}>
+              Save
+            </Button>
           </Box>
         </Flex>
       </Flex>
@@ -59,8 +66,10 @@ const enhance = compose(
     },
   }),
   connect(
-    state => state,
-    { increment }
+    state => ({
+      isUpdating: getIsPassUpdating(state),
+    }),
+    { increment, requestPasswordUpdate }
   ),
 );
 PasswordReset.propTypes = propTypes;

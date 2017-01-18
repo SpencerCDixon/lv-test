@@ -62,3 +62,15 @@ export const createUser = ({firstName, lastName, email, password}) => {
     },
   });
 };
+
+export const updatePassword = ({resetId, newPassword}) => (
+  callApi('/users/reset_password', {
+    method: 'PUT',
+    data: {
+      user: {
+        password_reset_id: resetId,
+        new_password: newPassword,
+      },
+    },
+  })
+);

@@ -25,6 +25,7 @@
     "redux-saga": "^0.14.2",
     "redux-thunk": "^2.1.0",
     "reflexbox": "^2.2.3",
+    "reselect": "^2.5.4",
     "uuid": "^3.0.1"
   },
   "devDependencies": {
