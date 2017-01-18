@@ -5,7 +5,6 @@ import Router from 'next/router';
 import Logo from '~/components/Logo';
 
 Router.onRouteChangeStart = (url) => {
-  console.log(`Loading: ${url}`);
   NProgress.start();
 }
 Router.onRouteChangeComplete = () => NProgress.done();

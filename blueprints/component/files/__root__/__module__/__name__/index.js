@@ -1,1 +1,2 @@
-export { <%= pascalEntityName %> } from './<%= pascalEntityName %>.js';
+import <%= pascalEntityName %> from './<%= pascalEntityName %>.js';
+export default <%= pascalEntityName %>;

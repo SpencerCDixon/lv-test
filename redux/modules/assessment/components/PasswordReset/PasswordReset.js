@@ -1,19 +1,19 @@
 import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
 import { Input, Button, P, H1 } from '~/components';
 import { Flex, Box } from 'reflexbox';
 import { reduxForm, Field } from 'redux-form';
 import { compose } from 'redux';
+import { increment } from '../../duck';
 
 const sx = {
   maxWidth: 750,
 };
+const propTypes = {
+  increment: PropTypes.func.isRequired,
+};
 
 class PasswordReset extends Component {
-  state = {
-    isLoading: false
-  }
-  handleClick = () => this.setState({isLoading: !this.state.isLoading})
-
   render() {
     return (
       <Flex flexColumn mx={1} style={sx}>
@@ -35,10 +35,10 @@ class PasswordReset extends Component {
         </Box>
         <Flex justify="flex-end">
           <Box mx={2}>
-            <Button>Skip</Button>
+            <Button onClick={this.props.increment}>Skip</Button>
           </Box>
           <Box>
-            <Button primary loading={this.state.isLoading} onClick={this.handleClick}>Save</Button>
+            <Button primary>Save</Button>
           </Box>
         </Flex>
       </Flex>
@@ -46,14 +46,22 @@ class PasswordReset extends Component {
   }
 }
 
-export default reduxForm({
-  form: 'PasswordResetForm',
-  fields: ['newPassword'],
-  validate: function(values) {
-    const errors = {};
-    if (!values.newPassword) {
-      errors.newPassword = 'Required';
-    }
-    return errors;
-  },
-})(PasswordReset);
+const enhance = compose(
+  reduxForm({
+    form: 'PasswordResetForm',
+    fields: ['newPassword'],
+    validate: function(values) {
+      const errors = {};
+      if (!values.newPassword) {
+        errors.newPassword = 'Required';
+      }
+      return errors;
+    },
+  }),
+  connect(
+    state => state,
+    { increment }
+  ),
+);
+PasswordReset.propTypes = propTypes;
+export default enhance(PasswordReset);
