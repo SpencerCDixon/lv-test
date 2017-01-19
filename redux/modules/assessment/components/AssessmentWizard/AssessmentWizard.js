@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import PasswordReset from '../PasswordReset';
+import LearningProfileQuestions from '../LearningProfileQuestions';
 import Steps from '~/components/Steps';
 import { getCurrentStep } from '../../selectors';
 import { connect } from 'react-redux';
@@ -15,13 +16,14 @@ const steps = [
 const propTypes = {
 };
 
+
 class AssessmentWizard extends Component {
   get content() {
     switch (this.props.currentStep) {
       case 1: 
         return <PasswordReset />;
       case 2:
-        return <h2> Second Step </h2>;
+        return <LearningProfileQuestions />;
     }
   }
 
@@ -31,8 +33,10 @@ class AssessmentWizard extends Component {
     return (
       <div>
         <Steps steps={steps} currentStep={currentStep} />
-        <Flex flexColumn justify="center" align="center" mt={3}>
-          {this.content}
+        <Flex justify="center" mt={3}>
+          <Box style={{maxWidth: 750}}>
+            {this.content}
+          </Box>
         </Flex>
       </div>
     );

@@ -7,9 +7,6 @@ import { compose } from 'redux';
 import { updatePassword, increment } from '../../duck';
 import { getIsPassUpdating } from '../../selectors';
 
-const sx = {
-  maxWidth: 750,
-};
 const propTypes = {
   increment: PropTypes.func.isRequired,
   requestPasswordUpdate: PropTypes.func.isRequired,
@@ -21,7 +18,7 @@ class PasswordReset extends Component {
     const { isUpdating } = this.props;
 
     return (
-      <Flex flexColumn mx={1} style={sx}>
+      <Flex flexColumn>
         <H1>Saving Your Learning Profile</H1>
         <P>
           In order to save your results you must set up a password which will be
