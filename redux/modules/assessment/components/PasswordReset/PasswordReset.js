@@ -4,7 +4,7 @@ import { Input, Button, P, H1 } from '~/components';
 import { Flex, Box } from 'reflexbox';
 import { reduxForm, Field } from 'redux-form';
 import { compose } from 'redux';
-import { requestPasswordUpdate, increment } from '../../duck';
+import { updatePassword, increment } from '../../duck';
 import { getIsPassUpdating } from '../../selectors';
 
 const sx = {
@@ -69,7 +69,7 @@ const enhance = compose(
     state => ({
       isUpdating: getIsPassUpdating(state),
     }),
-    { increment, requestPasswordUpdate }
+    { increment, requestPasswordUpdate: updatePassword.request }
   ),
 );
 PasswordReset.propTypes = propTypes;

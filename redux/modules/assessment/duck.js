@@ -6,13 +6,12 @@ export const NAME                    = 'assessment';
 export const INC                     = `${NAME}/INC`;
 export const DEC                     = `${NAME}/DEC`;
 export const GOTO                    = `${NAME}/GOTO`;
-export const REQUEST_PASSWORD_UPDATE = `${NAME}/REQUEST_PASSWORD_UPDATE`;
 export const UPDATE_PASSWORD         = createRequestTypes('UPDATE_PASSWORD', NAME);
 
 export const constants = {
   NAME,
   INC, DEC, GOTO,
-  REQUEST_PASSWORD_UPDATE,
+  UPDATE_PASSWORD,
 };
 
 // Action Creators
@@ -22,12 +21,10 @@ export const updatePassword = {
   success: () => action(UPDATE_PASSWORD.SUCCESS),
   failure: error => action(UPDATE_PASSWORD.FAILURE, {error}),
 };
-export const requestPasswordUpdate = () => action(REQUEST_PASSWORD_UPDATE);
 
 export const actions = {
   increment,
   updatePassword,
-  requestPasswordUpdate,
 };
 
 // Reducer

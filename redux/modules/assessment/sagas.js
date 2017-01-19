@@ -12,7 +12,6 @@ function* updatePasswordSaga() {
   const { newPassword } = values;
   const data = { resetId, newPassword };
 
-  yield put(actions.updatePassword.request());
   try {
     yield call(Api.updatePassword, data);
     yield put(actions.updatePassword.success());
@@ -24,5 +23,5 @@ function* updatePasswordSaga() {
 }
 
 export function* watchAssessment() {
-  yield fork(takeLatest, at.REQUEST_PASSWORD_UPDATE, updatePasswordSaga);
+  yield fork(takeLatest, at.UPDATE_PASSWORD.REQUEST, updatePasswordSaga);
 }
