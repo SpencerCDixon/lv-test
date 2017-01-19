@@ -10,6 +10,7 @@ export const P = ({ children }) => (
 
 const psx = css({
   fontFamily: fonts.secondary,
+  margin: 0,
 });
 
 export default P;

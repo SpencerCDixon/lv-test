@@ -34,7 +34,7 @@ class AssessmentWizard extends Component {
       <div>
         <Steps steps={steps} currentStep={currentStep} />
         <Flex justify="center" mt={3}>
-          <Box style={{maxWidth: 750}}>
+          <Box style={{maxWidth: 750}} mx={2}>
             {this.content}
           </Box>
         </Flex>
