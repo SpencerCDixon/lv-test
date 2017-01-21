@@ -14,8 +14,8 @@ const steps = [
 ];
 
 const propTypes = {
+  currentStep: PropTypes.number.isRequired,
 };
-
 
 class AssessmentWizard extends Component {
   get content() {

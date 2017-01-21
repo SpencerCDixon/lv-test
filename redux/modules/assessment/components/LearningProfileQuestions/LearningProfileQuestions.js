@@ -1,46 +1,27 @@
 import React, { Component, PropTypes } from 'react';
-import { Flex, Box } from 'reflexbox';
-import { Button, ClockSvg, DecisionSvg, BookSvg, Separator, SelectionBox, H1, P } from '~/components';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+import { getLpStep } from '../../selectors';
+import LearningProfileDirections from '../LearningProfileDirections';
 
 class LearningProfileQuestions extends Component {
+  get content() {
+    switch (this.props.step) {
+      case 1:
+        return <LearningProfileDirections />;
+      default:
+        return <h1>Learning Profile</h1>;
+    }
+  }
+
   render() {
-    return (
-      <Flex flexColumn>
-        <H1 center my={3}>Learning Profile Directions</H1>
-        <Flex justify="space-around" mt={2}>
-          <Box flex flexColumn align="center" justify="center" mx={3} style={{width: '33%'}}>
-            <Box>
-              <BookSvg />
-            </Box>
-            <P center subtle mt={3}>
-              Read the two paragraphs side by side.
-            </P>
-          </Box>
-
-          <Box flex flexColumn align="center" justify="center" mx={3} style={{width: '33%'}}>
-            <DecisionSvg />
-            <P center subtle mt={3}>
-              Decide which one describes you best.
-            </P>
-          </Box>
-
-          <Box flex flexColumn align="center" justify="center" mx={3} style={{width: '33%'}}>
-            <ClockSvg />
-            <P center subtle mt={3}>
-              Don’t invest more than 3 minutes deciding for each pair.
-            </P>
-          </Box>
-        </Flex>
-        <Flex my={4} justify="center">
-          <Box>
-            <Button primary>
-              Get Started
-            </Button>
-          </Box>
-        </Flex>
-      </Flex>
-    );
+    debugger;
+    return this.content;
   }
 }
 
-export default LearningProfileQuestions;
+export default connect(
+  createStructuredSelector({
+    step: getLpStep,
+  })
+)(LearningProfileQuestions);

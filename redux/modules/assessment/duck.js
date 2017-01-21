@@ -29,17 +29,18 @@ export const actions = {
 
 // Reducer
 export const defaultState = {
-  currentStep: 1,
+  assessStep: 1,  // Step in the overall assessment
+  lpStep: 1,      // Step in the learning profile assessment
   isUpdatingPass: false,
 };
 
 export default function(state = defaultState, action) {
   switch (action.type) {
     case INC:
-      return {...state, currentStep: state.currentStep + 1};
+      return {...state, assessStep: state.assessStep + 1};
 
     case DEC:
-      return {...state, currentStep: state.currentStep - 1};
+      return {...state, assessStep: state.assessStep - 1};
 
     case UPDATE_PASSWORD.REQUEST:
       return {...state, isUpdatingPass: true};
