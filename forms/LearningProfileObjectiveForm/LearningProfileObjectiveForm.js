@@ -28,11 +28,11 @@ class LearningProfileDurationForm extends Component {
         <Flex flexColumn>
           <Box>
             <Field
-              name="duration"
+              name="objective"
               component={ParagraphSelect}
               paras={[
-                { val: 'short', content: `You like to see the finsh line when you start an adventure. Progress is what you can touch with your hands, and the next step is usually improvised based on an observation or opportunity you just noticed. You usually get discouraged if you project seems like it's taking too long.` },
-                { val: 'long', content: `You believe the best things come to those who wait and the longer the adventure the better. You know the future is uncertain and that's why you plan for it. Your past adventures propell you to dream bigger, and you often imagine accomplishing your goals. You persevere in the face of long odds by adapting and modifying your the finish line to make success inevitable.` },
+                { val: 'independent', content: `You are your own best partner and believe that power comes from your faith in yourself. You belive you can solve any problem by looking at it objectively and gathering as much knowledge as possible. Through analysis and logic, you understand the rational course of action and then use your energy to communicate and inform others` },
+                { val: 'group', content: `You know shared success is sweetest and that being accountable to a team brings out your best work. You love it when your teammates bring you their problems to help solve. Your always able to reframe it in a helpful way by asking the right question in a sensitive way. Your body language and energy express vision for the success of your team.` },
               ]}
             />
           </Box>
@@ -58,8 +58,8 @@ class LearningProfileDurationForm extends Component {
 LearningProfileDurationForm.propTypes = propTypes;
 LearningProfileDurationForm.defaultProps = defaultProps;
 const enhance = reduxForm({
-  form: 'LearningProfileDurationForm',
-  fields: ['duration'],
+  form: 'LearningProfileObjectiveForm',
+  fields: ['objective'],
   validate,
 });
 export default enhance(LearningProfileDurationForm);

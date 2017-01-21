@@ -3,6 +3,7 @@ import AssessmentWizard from './AssessmentWizard';
 import LearningProfileQuestions from './LearningProfileQuestions';
 import LearningProfileDirections from './LearningProfileDirections';
 import LearningProfileDurationQuestions from './LearningProfileDurationQuestions';
+import LearningProfileObjectiveQuestions from './LearningProfileObjectiveQuestions';
 
 export {
   PasswordReset,
@@ -10,5 +11,5 @@ export {
   LearningProfileDirections,
   LearningProfileQuestions,
   LearningProfileDurationQuestions,
+  LearningProfileObjectiveQuestions,
 }
-

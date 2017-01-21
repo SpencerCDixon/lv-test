@@ -6,6 +6,7 @@ import { getLpStep } from '../../selectors';
 // Steps for the LP assessment
 import LearningProfileDirections from '../LearningProfileDirections';
 import LearningProfileDurationQuestions from '../LearningProfileDurationQuestions';
+import LearningProfileObjectiveQuestions from '../LearningProfileObjectiveQuestions';
 
 class LearningProfileQuestions extends Component {
   static propTypes = {
@@ -18,6 +19,8 @@ class LearningProfileQuestions extends Component {
         return <LearningProfileDirections />;
       case 2:
         return <LearningProfileDurationQuestions />;
+      case 3:
+        return <LearningProfileObjectiveQuestions />;
       default:
         return <h1>Learning Profile</h1>;
     }
