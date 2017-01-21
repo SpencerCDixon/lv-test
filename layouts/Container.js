@@ -9,10 +9,9 @@ export const Container = ({children, ...rest}) => (
 )
 
 const cls = css({
-  margin: '0 auto',
-  [mq.small]: { width: 750 },
-  [mq.medium]: { width: 970 },
-  [mq.large]: { width: 1170 },
+  [mq.small]: { padding: '0 2%' },
+  [mq.medium]: { padding: '0 10%%', },
+  [mq.large]: { padding: '0 18%' },
 });
 
 export default Container;
