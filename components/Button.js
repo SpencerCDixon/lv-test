@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { colors, lighten, darken } from '../styles';
+import { fonts, colors, lighten, darken } from '../styles';
 import { css } from 'glamor';
 
 export default ({ children, primary, secondary, loading = false, ...rest }) => {
@@ -20,6 +20,8 @@ export default ({ children, primary, secondary, loading = false, ...rest }) => {
     appearance: 'none',
     border: 'none',
     cursor: 'pointer',
+    fontFamily: fonts.secondary,
+    textTransform: 'uppercase',
     background,
     ':disabled': {
       cursor: 'not-allowed',

@@ -1,11 +1,11 @@
 import React, { Component, PropTypes } from 'react';
 import { Flex, Box } from 'reflexbox';
-import { ClockSvg, DecisionSvg, BookSvg, Separator, SelectionBox, H1, P } from '~/components';
+import { Button, ClockSvg, DecisionSvg, BookSvg, Separator, SelectionBox, H1, P } from '~/components';
 
 class LearningProfileQuestions extends Component {
   render() {
     return (
-      <Flex flexColumn style={{width: '100%'}}>
+      <Flex flexColumn>
         <H1 center my={3}>Learning Profile Directions</H1>
         <Flex justify="space-around" mt={2}>
           <Box flex flexColumn align="center" justify="center" mx={3} style={{width: '33%'}}>
@@ -29,6 +29,13 @@ class LearningProfileQuestions extends Component {
             <P center subtle mt={3}>
               Don’t invest more than 3 minutes deciding for each pair.
             </P>
+          </Box>
+        </Flex>
+        <Flex my={4} justify="center">
+          <Box>
+            <Button primary>
+              Get Started
+            </Button>
           </Box>
         </Flex>
       </Flex>
