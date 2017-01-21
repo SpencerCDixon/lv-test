@@ -2,6 +2,7 @@ import React from 'react';
 import { Gateway } from 'react-gateway';
 import ReactModal2 from 'react-modal2';
 import { css } from 'glamor';
+import { boxShadow, colors } from '~/styles';
 
 const backdrop = css({
   position: 'absolute',
@@ -9,19 +10,22 @@ const backdrop = css({
   left: 0,
   width: '100%',
   height: '100%',
-  background: 'rgba(0, 0, 0, 0.8)',
+  background: 'rgba(0, 0, 0, 0.6)',
 });
 
 const modal = css({
-  position: 'relative',
+  position: 'fixed',
   top: '50%',
-  transform: 'translate(0, -50%)',
-  maxWidth: 400,
-  margin: '0 auto',
+  left: '50%',
+  right: 'auto',
+  bottom: 'auto',
+  transform: 'translate(-50%, -50%)',
+  maxHeight: 'calc(100% - 100px)',
   padding: 20,
-  background: 'white',
-  borderRadius: '3px',
+  background: colors.white,
+  boxShadow: boxShadow[1],
   outline: 'none',
+  overflowY: 'auto',
 });
 
 class Modal extends React.Component {

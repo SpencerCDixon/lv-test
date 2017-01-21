@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { Input, Button, P, H1 } from '~/components';
+import { Modal, Input, Button, P, H1 } from '~/components';
 import { Flex, Box } from 'reflexbox';
 import { reduxForm, Field } from 'redux-form';
 import { compose } from 'redux';
