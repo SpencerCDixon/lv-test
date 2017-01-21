@@ -21,11 +21,9 @@ const modal = css({
   bottom: 'auto',
   transform: 'translate(-50%, -20%)',
   maxHeight: 'calc(100% - 100px)',
-  padding: 20,
   background: colors.white,
   boxShadow: boxShadow[1],
   outline: 'none',
-  overflowY: 'auto',
 });
 
 class Modal extends React.Component {

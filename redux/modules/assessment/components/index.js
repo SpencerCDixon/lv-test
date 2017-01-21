@@ -7,6 +7,7 @@ import LearningProfileObjectiveQuestions from './LearningProfileObjectiveQuestio
 import LearningProfileRoleQuestions from './LearningProfileRoleQuestions';
 import LearningProfileStrategyQuestions from './LearningProfileStrategyQuestions';
 import ExternalTests from './ExternalTests';
+import CviModal from './CviModal';
 
 export {
   PasswordReset,
@@ -18,5 +19,5 @@ export {
   LearningProfileRoleQuestions,
   LearningProfileStrategyQuestions,
   ExternalTests,
+  CviModal,
 }
-

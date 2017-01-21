@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
-import { Modal, H1, EnterTest } from '~/components';
+import { H1, EnterTest } from '~/components';
 import { Flex, Box } from 'reflexbox';
+import CviModal from '../CviModal';
 
 const propTypes = {
 };
@@ -40,11 +41,7 @@ class ExternalTests extends Component {
             my={2}
           />
         </Flex>
-        {this.state.cvi && 
-          <Modal onClose={this.toggleModal.bind(this, 'cvi')}>
-            <H1>Enter CVI Results</H1>
-          </Modal>
-        }
+        {this.state.cvi && <CviModal onClose={this.toggleModal.bind(this, 'cvi')} />}
       </Flex>
     );
   }
