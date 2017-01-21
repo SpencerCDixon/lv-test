@@ -1,9 +1,10 @@
 import React, { PropTypes } from 'react';
+import { withReflex } from 'reflexbox';
 import { fonts } from '~/styles';
 import { css } from 'glamor';
 
-export const P = ({ children }) => (
-  <p className={psx}>
+const P = ({ children, ...rest }) => (
+  <p className={psx} {...rest}>
     {children}
   </p>
 )
@@ -13,4 +14,4 @@ const psx = css({
   margin: 0,
 });
 
-export default P;
+export default withReflex()(P);
