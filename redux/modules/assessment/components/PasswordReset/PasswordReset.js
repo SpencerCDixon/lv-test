@@ -19,7 +19,7 @@ class PasswordReset extends Component {
 
     return (
       <Flex flexColumn>
-        <H1>Saving Your Learning Profile</H1>
+        <H1 center my={3}>Saving Your Learning Profile</H1>
         <P>
           In order to save your results you must set up a password which will be
           associated to your email.  If you'd prefer to continue without access
