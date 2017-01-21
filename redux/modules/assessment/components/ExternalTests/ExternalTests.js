@@ -1,11 +1,19 @@
 import React, { Component, PropTypes } from 'react';
-import { H1, EnterTest } from '~/components';
+import { Modal, H1, EnterTest } from '~/components';
 import { Flex, Box } from 'reflexbox';
 
 const propTypes = {
 };
 
 class ExternalTests extends Component {
+  state = {
+    cvi: false,
+    time: false,
+    personalities: false,
+  }
+
+  toggleModal = type => this.setState({[type]: !this.state[type] })
+
   render() {
     return (
       <Flex flexColumn style={{width: '100%'}}>
@@ -16,6 +24,7 @@ class ExternalTests extends Component {
             title="CVI"
             subtitle="Core Values Index. Conflict Resolution"
             to="http://ciyourcvi.com"
+            onResults={this.toggleModal.bind(this, 'cvi')}
             my={2}
           />
           <EnterTest 
@@ -31,6 +40,11 @@ class ExternalTests extends Component {
             my={2}
           />
         </Flex>
+        {this.state.cvi && 
+          <Modal onClose={this.toggleModal.bind(this, 'cvi')}>
+            <H1>Enter CVI Results</H1>
+          </Modal>
+        }
       </Flex>
     );
   }

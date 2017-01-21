@@ -10,16 +10,16 @@ const backdrop = css({
   left: 0,
   width: '100%',
   height: '100%',
-  background: 'rgba(0, 0, 0, 0.6)',
+  background: 'rgba(0, 0, 0, 0.4)',
 });
 
 const modal = css({
   position: 'fixed',
-  top: '50%',
+  top: '20%',
   left: '50%',
   right: 'auto',
   bottom: 'auto',
-  transform: 'translate(-50%, -50%)',
+  transform: 'translate(-50%, -20%)',
   maxHeight: 'calc(100% - 100px)',
   padding: 20,
   background: colors.white,
