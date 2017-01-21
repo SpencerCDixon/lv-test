@@ -4,6 +4,8 @@ import LearningProfileQuestions from './LearningProfileQuestions';
 import LearningProfileDirections from './LearningProfileDirections';
 import LearningProfileDurationQuestions from './LearningProfileDurationQuestions';
 import LearningProfileObjectiveQuestions from './LearningProfileObjectiveQuestions';
+import LearningProfileRoleQuestions from './LearningProfileRoleQuestions';
+import LearningProfileStrategyQuestions from './LearningProfileStrategyQuestions';
 
 export {
   PasswordReset,
@@ -12,4 +14,7 @@ export {
   LearningProfileQuestions,
   LearningProfileDurationQuestions,
   LearningProfileObjectiveQuestions,
+  LearningProfileRoleQuestions,
+  LearningProfileStrategyQuestions,
 }
+
