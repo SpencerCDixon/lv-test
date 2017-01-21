@@ -6,9 +6,10 @@ export default ({
   to = 'google.com', 
   onResults = () => alert('clicked'),  
   title = 'Title Here', 
-  subtitle = 'Subtitle Here'
+  subtitle = 'Subtitle Here',
+  ...rest
 }) => (
-  <Flex style={{width: '100%'}}>
+  <Flex style={{width: '100%'}} {...rest}>
     <Flex flexColumn>
       <H1>{title}</H1>
       <P subtle mt={2}>{subtitle}</P>
