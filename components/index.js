@@ -7,6 +7,9 @@ import SelectionBox from './SelectionBox';
 import Step from './Step';
 import Steps from './Steps';
 import Separator from './Separator';
+import BookSvg from './BookSvg';
+import DecisionSvg from './DecisionSvg';
+import ClockSvg from './ClockSvg';
 
 export {
   Button,
@@ -15,4 +18,5 @@ export {
   Step,
   Steps,
   Separator,
+  BookSvg, DecisionSvg, ClockSvg,
 }

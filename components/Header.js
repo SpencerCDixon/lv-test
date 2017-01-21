@@ -2,17 +2,21 @@ import React, { PropTypes } from 'react';
 import { fonts } from '~/styles';
 import { css } from 'glamor';
 
-export const Header = ({ children, level=2, ...rest }) => (
+export const Header = ({ children, level=2, center = false, ...rest }) => (
   React.createElement(
     `h${level}`,
-    {className: header, ...rest},
+    {className: css(base, center === true ? centered : {}), ...rest},
     children,
   )
 )
 
-const header = css({
+const base = css({
   fontFamily: fonts.primary,
   fontWeight: 300,
+});
+
+const centered = css({
+  textAlign: 'center',
 });
 
 export const H1 = props => Header({...props, level: 1});
