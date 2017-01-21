@@ -1,2 +1,2 @@
-export default from './LearningProfileDurationForm.js';
-export LearningProfileDurationForm from './LearningProfileDurationForm.js';
+import LearningProfileDurationForm from './LearningProfileDurationForm.js';
+export default LearningProfileDurationForm;

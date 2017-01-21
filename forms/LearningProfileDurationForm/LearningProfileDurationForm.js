@@ -1,8 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { Field, reduxForm } from 'redux-form';
-import { TextField } from 'redux-form-material-ui';
-import { RaisedButton } from 'material-ui';
 import { Flex, Box } from 'reflexbox';
+import { Button, H1 } from '~/components';
 import validate from './validate';
 
 const propTypes = {
@@ -19,27 +18,28 @@ const defaultProps = {
 
 class LearningProfileDurationForm extends Component {
   render() {
-    const { handleSubmit, invalid, pristine, submitting } = this.props;
+    const { handleSubmit, invalid, pristine, submitting, submitText } = this.props;
 
+    // TODO: look into why this is forcing me to add widht 100% this is BS
     return (
-      <Flex flexColumn>
-        <Box>
-          <Field
-            name="TODO"
-            hintText="TODO"
-            component={TextField}
-            fullWidth
-          />
-        </Box>
+      <Flex flexColumn style={{width: '100%'}}>
+        <H1 center my={3}>Which paragraph describes you best?</H1>
 
-        <Box mt={2} flex justify="flex-end" align="center">
-          <RaisedButton
-            primary
-            label="TODO"
-            onClick={handleSubmit}
-            disabled={pristine || submitting || invalid}
-          />
-        </Box>
+        <Flex flexColumn>
+          <Box>
+            <p>Some content</p>
+          </Box>
+
+          <Box mt={2} flex justify="flex-end" align="center">
+            <Button
+              primary
+              onClick={handleSubmit}
+              disabled={pristine || submitting || invalid}
+            >
+              {submitText}
+            </Button>
+          </Box>
+        </Flex>
       </Flex>
     );
   }

@@ -1,8 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { Field, reduxForm } from 'redux-form';
-import { TextField } from 'redux-form-material-ui';
-import { RaisedButton } from 'material-ui';
 import { Flex, Box } from 'reflexbox';
+import { Button } from '~/components';
 import validate from './validate';
 
 const propTypes = {
@@ -33,12 +32,13 @@ class <%= pascalEntityName %>Form extends Component {
         </Box>
 
         <Box mt={2} flex justify="flex-end" align="center">
-          <RaisedButton
+          <Button
             primary
-            label="TODO"
             onClick={handleSubmit}
             disabled={pristine || submitting || invalid}
-          />
+          >
+            {this.props.submitText}
+          </Button>
         </Box>
       </Flex>
     );

@@ -1,2 +1,2 @@
-export default from './<%= pascalEntityName %>Form.js';
-export <%= pascalEntityName %>Form from './<%= pascalEntityName %>Form.js';
+import <%= pascalEntityName %>Form from './<%= pascalEntityName %>Form.js';
+export default <%= pascalEntityName %>Form;
