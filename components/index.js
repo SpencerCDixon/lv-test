@@ -4,6 +4,7 @@ import BookSvg from './BookSvg';
 import Button from './Button';
 import ClockSvg from './ClockSvg';
 import DecisionSvg from './DecisionSvg';
+import EnterTest from './EnterTest';
 import Input from './Input';
 import ParagraphSelect from './ParagraphSelect';
 import P from './P';
@@ -15,6 +16,7 @@ import Steps from './Steps';
 export {
   BookSvg, DecisionSvg, ClockSvg,
   Button,
+  EnterTest,
   Input,
   P,
   ParagraphSelect,

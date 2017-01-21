@@ -1,5 +1,6 @@
 import { fork, call, put, takeLatest, select } from 'redux-saga/effects';
 import { constants as at, actions } from './duck';
+import * as sel from './selectors';
 import * as Api from '~/util/lvApi.js';
 import { pushRoute } from '~/redux/sagas/global';
 import { reset, getFormValues } from 'redux-form'
@@ -22,7 +23,7 @@ function* updatePasswordSaga() {
   }
 }
 
-function* updateLpSaga({values}) {
+function* updateLpSaga(values) {
   const authToken = yield select(user.selectors.getAuthToken);
 
   try {
@@ -30,13 +31,24 @@ function* updateLpSaga({values}) {
       headers: { 'Authorization': `Token token=${authToken}` }
     });
     yield put(actions.updateLp.success());
-    yield put(actions.increment('lp'));
+    return true;
   } catch (e) {
     yield put(actions.updateLp.failure(e));
+    return false;
+  }
+}
+
+function* progressLpSaga({values}) {
+  const didUpdate = yield call(updateLpSaga, values)
+
+  if (didUpdate) {
+    const currentStep = yield select(sel.getLpStep);
+    const toStep = currentStep === 5 ? 'assess' : 'lp';
+    yield put(actions.increment(toStep));
   }
 }
 
 export function* watchAssessment() {
   yield fork(takeLatest, at.UPDATE_PASSWORD.REQUEST, updatePasswordSaga);
-  yield fork(takeLatest, at.UPDATE_LP.REQUEST, updateLpSaga);
+  yield fork(takeLatest, at.UPDATE_LP.REQUEST, progressLpSaga);
 }

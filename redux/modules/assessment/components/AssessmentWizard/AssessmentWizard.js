@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import PasswordReset from '../PasswordReset';
 import LearningProfileQuestions from '../LearningProfileQuestions';
+import ExternalTests from '../ExternalTests';
 import Steps from '~/components/Steps';
 import { getCurrentStep } from '../../selectors';
 import { connect } from 'react-redux';
@@ -24,6 +25,10 @@ class AssessmentWizard extends Component {
         return <PasswordReset />;
       case 2:
         return <LearningProfileQuestions />;
+      case 3:
+        return <ExternalTests />
+      default:
+        return <h1>Uh oh. Something bad happened.</h1>;
     }
   }
 

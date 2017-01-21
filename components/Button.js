@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import { fonts, colors, lighten, darken } from '../styles';
 import { css } from 'glamor';
 
-export default ({ children, primary, secondary, disabled = false, loading = false, ...rest }) => {
+export default ({ children, primary, secondary, href, disabled = false, loading = false, ...rest }) => {
   let background;
   if (primary) {
     background = colors.primary;
@@ -31,7 +31,7 @@ export default ({ children, primary, secondary, disabled = false, loading = fals
   });
 
   // TODO: extract loader out into it's own component
-  return (
+  const base = (
     <button {...styles} {...rest} disabled={loading || disabled}>
       {loading &&
         <span style={{marginRight: 4}}>
@@ -60,5 +60,8 @@ export default ({ children, primary, secondary, disabled = false, loading = fals
       {children}
     </button>
   );
+
+  if (href) return <a href={href}>{base}</a>;
+  else return base;
 }
 
