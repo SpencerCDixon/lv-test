@@ -20,7 +20,7 @@ class LearningProfileDurationQuestions extends Component {
     return (
       <LearningProfileDurationForm 
         onSubmit={this.handleSubmit} 
-        submitting={this.props.isLoading}
+        isLoading={this.props.isLoading}
       />
     );
   }

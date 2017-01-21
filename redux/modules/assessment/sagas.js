@@ -24,7 +24,6 @@ function* updatePasswordSaga() {
 
 function* updateLpSaga({values}) {
   const authToken = yield select(user.selectors.getAuthToken);
-  console.log({authToken});
 
   try {
     yield call(Api.updateLp, values, {

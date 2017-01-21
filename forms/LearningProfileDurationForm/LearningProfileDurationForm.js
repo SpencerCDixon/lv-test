@@ -8,7 +8,7 @@ const propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   invalid: PropTypes.bool,
   pristine: PropTypes.bool,
-  submitting: PropTypes.bool,
+  isLoading: PropTypes.bool,
   submitText: PropTypes.string,
 };
 
@@ -18,7 +18,7 @@ const defaultProps = {
 
 class LearningProfileDurationForm extends Component {
   render() {
-    const { handleSubmit, invalid, pristine, submitting, submitText } = this.props;
+    const { handleSubmit, invalid, pristine, isLoading, submitText } = this.props;
 
     // TODO: look into why this is forcing me to add widht 100% this is BS
     return (
@@ -43,7 +43,7 @@ class LearningProfileDurationForm extends Component {
                 primary
                 onClick={handleSubmit}
                 disabled={pristine || submitting || invalid}
-                loading={submitting}
+                loading={isLoading}
               >
                 {submitText}
               </Button>
