@@ -1,24 +1,34 @@
 import React, { Component, PropTypes } from 'react';
 import LearningProfileDurationForm from '~/forms/LearningProfileDurationForm';
+import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
-import { increment } from '../../duck';
+import { updateLp } from '../../duck';
+import { getIsLpLoading } from '../../selectors';
 import { Flex } from 'reflexbox';
 
 const propTypes = {
-  increment: PropTypes.func.isRequired,
+  requestUpdate: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool.isRequired,
 };
 
 class LearningProfileDurationQuestions extends Component {
-  handleSubmit = () => {
-    this.props.increment('lp');
+  handleSubmit = (values) => {
+    this.props.requestUpdate(values);
   }
 
   render() {
-    return <LearningProfileDurationForm onSubmit={this.handleSubmit} />;
+    return (
+      <LearningProfileDurationForm 
+        onSubmit={this.handleSubmit} 
+        submitting={this.props.isLoading}
+      />
+    );
   }
 }
 
 LearningProfileDurationQuestions.propTypes = propTypes;
-export default connect(undefined, { 
-  increment,
-})(LearningProfileDurationQuestions);
+export default connect(
+  createStructuredSelector({
+    isLoading: getIsLpLoading,
+  }), { requestUpdate: updateLp.request, }
+)(LearningProfileDurationQuestions);

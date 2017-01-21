@@ -22,6 +22,22 @@ function* updatePasswordSaga() {
   }
 }
 
+function* updateLpSaga({values}) {
+  const authToken = yield select(user.selectors.getAuthToken);
+  console.log({authToken});
+
+  try {
+    yield call(Api.updateLp, values, {
+      headers: { 'Authorization': `Token token=${authToken}` }
+    });
+    yield put(actions.updateLp.success());
+    yield put(actions.increment('lp'));
+  } catch (e) {
+    yield put(actions.updateLp.failure(e));
+  }
+}
+
 export function* watchAssessment() {
   yield fork(takeLatest, at.UPDATE_PASSWORD.REQUEST, updatePasswordSaga);
+  yield fork(takeLatest, at.UPDATE_LP.REQUEST, updateLpSaga);
 }

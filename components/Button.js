@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import { fonts, colors, lighten, darken } from '../styles';
 import { css } from 'glamor';
 
-export default ({ children, primary, secondary, loading = false, ...rest }) => {
+export default ({ children, primary, secondary, disabled = false, loading = false, ...rest }) => {
   let background;
   if (primary) {
     background = colors.primary;
@@ -27,12 +27,12 @@ export default ({ children, primary, secondary, loading = false, ...rest }) => {
       cursor: 'not-allowed',
       background: lighten(colors.primary, 0.2),
     },
-    ':hover': { background: loading ? '' : darken(background, 0.2), },
+    ':hover': { background: loading || disabled ? '' : darken(background, 0.2), },
   });
 
   // TODO: extract loader out into it's own component
   return (
-    <button {...styles} {...rest} disabled={loading}>
+    <button {...styles} {...rest} disabled={loading || disabled}>
       {loading &&
         <span style={{marginRight: 4}}>
           <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24px" height="14px" viewBox="0 0 24 30">

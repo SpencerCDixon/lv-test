@@ -1,5 +1,6 @@
 import 'isomorphic-fetch';
 import { v1 } from 'uuid';
+import { loadAuth } from './localStorage';
 
 let baseUrl;
 if (process.env.NODE_ENV === 'production') {
@@ -72,5 +73,13 @@ export const updatePassword = ({resetId, newPassword}) => (
         new_password: newPassword,
       },
     },
+  })
+);
+
+export const updateLp = (values, options) => (
+  callApi('/lv_assessment', {
+    method: 'PUT',
+    data: { lv_assessment: {...values, version: 'v1'} },
+    ...options
   })
 );

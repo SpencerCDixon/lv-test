@@ -13,7 +13,7 @@ const propTypes = {
 };
 
 const defaultProps = {
-  submitText: 'Save',
+  submitText: 'Next',
 };
 
 class LearningProfileDurationForm extends Component {
