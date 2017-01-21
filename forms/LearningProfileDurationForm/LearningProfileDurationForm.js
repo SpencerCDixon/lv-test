@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Flex, Box } from 'reflexbox';
-import { Button, H1 } from '~/components';
+import { ParagraphSelect, Button, H1 } from '~/components';
 import validate from './validate';
 
 const propTypes = {
@@ -27,7 +27,14 @@ class LearningProfileDurationForm extends Component {
 
         <Flex flexColumn>
           <Box>
-            <p>Some content</p>
+            <Field
+              name="duration"
+              component={ParagraphSelect}
+              paras={[
+                { val: 'short', content: 'Some content here' },
+                { val: 'long', content: 'Some other content here' },
+              ]}
+            />
           </Box>
 
           <Box mt={2} flex justify="flex-end" align="center">
@@ -49,7 +56,7 @@ LearningProfileDurationForm.propTypes = propTypes;
 LearningProfileDurationForm.defaultProps = defaultProps;
 const enhance = reduxForm({
   form: 'LearningProfileDurationForm',
-  fields: [],
+  fields: ['duration'],
   validate,
 });
 export default enhance(LearningProfileDurationForm);

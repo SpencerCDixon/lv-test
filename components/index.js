@@ -5,6 +5,7 @@ import Button from './Button';
 import ClockSvg from './ClockSvg';
 import DecisionSvg from './DecisionSvg';
 import Input from './Input';
+import ParagraphSelect from './ParagraphSelect';
 import P from './P';
 import SelectionBox from './SelectionBox';
 import Separator from './Separator';
@@ -16,6 +17,7 @@ export {
   Button,
   Input,
   P,
+  ParagraphSelect,
   SelectionBox,
   Separator,
   Step,
