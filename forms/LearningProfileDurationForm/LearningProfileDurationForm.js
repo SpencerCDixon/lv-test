@@ -31,21 +31,24 @@ class LearningProfileDurationForm extends Component {
               name="duration"
               component={ParagraphSelect}
               paras={[
-                { val: 'short', content: 'Some content here' },
-                { val: 'long', content: 'Some other content here' },
+                { val: 'short', content: `You like to see the finsh line when you start an adventure. Progress is what you can touch with your hands, and the next step is usually improvised based on an observation or opportunity you just noticed. You usually get discouraged if you project seems like it's taking too long.` },
+                { val: 'long', content: `You believe the best things come to those who wait and the longer the adventure the better. You know the future is uncertain and that's why you plan for it. Your past adventures propell you to dream bigger, and you often imagine accomplishing your goals. You persevere in the face of long odds by adapting and modifying your the finish line to make success inevitable.` },
               ]}
             />
           </Box>
 
-          <Box mt={2} flex justify="flex-end" align="center">
-            <Button
-              primary
-              onClick={handleSubmit}
-              disabled={pristine || submitting || invalid}
-            >
-              {submitText}
-            </Button>
-          </Box>
+          <Flex mt={3} justify="flex-end" align="center">
+            <Box>
+              <Button
+                primary
+                onClick={handleSubmit}
+                disabled={pristine || submitting || invalid}
+                loading={submitting}
+              >
+                {submitText}
+              </Button>
+            </Box>
+          </Flex>
         </Flex>
       </Flex>
     );

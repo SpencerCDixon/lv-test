@@ -6,9 +6,9 @@ import { css } from 'glamor';
 
 export default ({ children, active = false, onClick, ...rest }) => {
   const styles = css({
-    background: active ? 'rgba(0,0,0,0.05)' : 'none',
+    background: active ? 'rgba(0,0,0,0.1)' : 'none',
     ':hover': {
-      background: 'rgba(0,0,0,0.05)',
+      background: 'rgba(0,0,0,0.1)',
       cursor: 'pointer',
     }
   });

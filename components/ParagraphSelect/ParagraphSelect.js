@@ -13,6 +13,7 @@ class ParagraphSelect extends Component {
       <Flex>
         {paras.map(({val, content}) => (
           <SelectionBox 
+            mx={1}
             key={val} 
             onClick={() => onChange(val)} 
             style={{width: '50%'}}
