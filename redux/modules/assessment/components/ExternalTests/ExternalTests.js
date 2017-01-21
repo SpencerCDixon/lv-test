@@ -21,13 +21,13 @@ class ExternalTests extends Component {
           <EnterTest 
             title="Time Paradox"
             subtitle="Your orientation to past, present, and future."
-            to="http://ciyourcvi.com"
+            to="http://www.thetimeparadox.com/zimbardo-time-perspective-inventory"
             my={3}
           />
           <EnterTest 
             title="16 Personalities"
             subtitle="Your strengths & weaknesses"
-            to="http://ciyourcvi.com"
+            to="https://www.16personalities.com/free-personality-test"
             my={3}
           />
         </Flex>
