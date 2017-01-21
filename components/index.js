@@ -12,12 +12,14 @@ import SelectionBox from './SelectionBox';
 import Separator from './Separator';
 import Step from './Step';
 import Steps from './Steps';
+import Modal from './Modal';
 
 export {
   BookSvg, DecisionSvg, ClockSvg,
   Button,
   EnterTest,
   Input,
+  Modal,
   P,
   ParagraphSelect,
   SelectionBox,
