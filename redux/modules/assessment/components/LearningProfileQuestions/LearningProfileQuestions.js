@@ -9,13 +9,15 @@ class LearningProfileQuestions extends Component {
     switch (this.props.step) {
       case 1:
         return <LearningProfileDirections />;
+      case 2:
+        return '';
+        // return <Learni
       default:
         return <h1>Learning Profile</h1>;
     }
   }
 
   render() {
-    debugger;
     return this.content;
   }
 }

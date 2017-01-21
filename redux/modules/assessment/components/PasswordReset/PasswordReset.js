@@ -37,7 +37,7 @@ class PasswordReset extends Component {
         </Box>
         <Flex justify="flex-end">
           <Box mx={2}>
-            <Button onClick={this.props.increment}>Skip</Button>
+            <Button onClick={() => this.props.increment('assess')}>Skip</Button>
           </Box>
           <Box>
             <Button primary loading={isUpdating} onClick={this.props.requestPasswordUpdate}>

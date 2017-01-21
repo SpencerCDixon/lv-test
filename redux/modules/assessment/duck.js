@@ -15,7 +15,7 @@ export const constants = {
 };
 
 // Action Creators
-export const increment = () => action(INC);
+export const increment = (counter) => action(INC, {counter});
 export const updatePassword = {
   request: () => action(UPDATE_PASSWORD.REQUEST),
   success: () => action(UPDATE_PASSWORD.SUCCESS),
@@ -37,10 +37,16 @@ export const defaultState = {
 export default function(state = defaultState, action) {
   switch (action.type) {
     case INC:
-      return {...state, assessStep: state.assessStep + 1};
+      return {
+        ...state, 
+        [`${action.counter}Step`]: state[`${action.counter}Step`] + 1,
+      };
 
     case DEC:
-      return {...state, assessStep: state.assessStep - 1};
+      return {
+        ...state, 
+        [`${action.counter}Step`]: state[`${action.counter}Step`] - 1,
+      };
 
     case UPDATE_PASSWORD.REQUEST:
       return {...state, isUpdatingPass: true};

@@ -16,7 +16,7 @@ function* updatePasswordSaga() {
     yield call(Api.updatePassword, data);
     yield put(actions.updatePassword.success());
     yield put(reset('PasswordResetForm'));
-    yield put(actions.increment());
+    yield put(actions.increment('assess'));
   } catch (e) {
     yield put(actions.updatePassword.failure(e));
   }
