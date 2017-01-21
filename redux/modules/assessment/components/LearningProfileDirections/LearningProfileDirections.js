@@ -1,4 +1,6 @@
 import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
+import { increment } from '../../duck';
 import { Flex, Box } from 'reflexbox';
 import { Button, ClockSvg, DecisionSvg, BookSvg, Separator, SelectionBox, H1, P } from '~/components';
 
@@ -35,7 +37,7 @@ class LearningProfileDirections extends Component {
 
         <Flex my={4} justify="center">
           <Box>
-            <Button primary>
+            <Button onClick={() => this.props.increment('lp')} primary>
               Get Started
             </Button>
           </Box>
@@ -45,4 +47,4 @@ class LearningProfileDirections extends Component {
   }
 }
 
-export default LearningProfileDirections;
+export default connect(undefined, {increment})(LearningProfileDirections);

@@ -10,8 +10,7 @@ class LearningProfileQuestions extends Component {
       case 1:
         return <LearningProfileDirections />;
       case 2:
-        return '';
-        // return <Learni
+        return <h1>Step Two</h1>
       default:
         return <h1>Learning Profile</h1>;
     }
