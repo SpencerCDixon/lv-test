@@ -49,6 +49,7 @@ class Modal extends React.Component {
     );
   }
 }
+
 Modal.defaultProps = {
   closeOnEsc: true,
   closeOnBackdropClick: true,

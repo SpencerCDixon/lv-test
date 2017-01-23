@@ -28,7 +28,6 @@ class CviResultsForm extends Component {
             name="primary"
             placeholder="Primary Trait"
             component={Input}
-            fullWidth
           />
         </Box>
 
@@ -37,7 +36,6 @@ class CviResultsForm extends Component {
             name="secondary"
             placeholder="Secondary Trait"
             component={Input}
-            fullWidth
           />
         </Box>
 

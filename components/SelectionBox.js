@@ -12,10 +12,13 @@ export default ({ children, active = false, onClick, ...rest }) => {
       cursor: 'pointer',
     }
   });
+  const p = css({
+    lineHeight: 1.4,
+  });
 
   return (
-    <Box onClick={onClick} className={styles} p={2} {...rest}>
-      <P>{children}</P>
+    <Box flex align="center" onClick={onClick} className={styles} p={2} {...rest}>
+      <P className={p}>{children}</P>
     </Box>
   );
 };
